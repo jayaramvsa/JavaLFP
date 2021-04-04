@@ -39,26 +39,31 @@ public class AddressBookTest {
     public void emailFailure() throws Exception {
         User createUserTest = CustomerDataUtil.createUser("Jayaram", "Arunachalam",
                 "jvsa@gmail", "+91 99900 77880", "V!jay3bava");
+        Assert.assertEquals("null",createUserTest.getEmailId());
     }
 
     /**
      * <p>Failure Test for Invalid PhoneNo </p>
+     *
      * @throws Exception
      */
     @Test(expected = Exception.class)
     public void phoneFailure() throws Exception {
         User createUserTest = CustomerDataUtil.createUser("Jayaram", "Arunachalam",
                 "jvsa@gmail", "+9199900 77880", "V!jay3bava");
+        Assert.assertEquals("null",createUserTest.getPhoneNo());
     }
 
     /**
      * <p>Failure Test for Invalid Password </p>
+     *
      * @throws Exception
      */
     @Test(expected = Exception.class)
     public void passwordFailure() throws Exception {
         User createUserTest = CustomerDataUtil.createUser("Jayaram", "Arunachalam",
                 "jvsa@gmail", "+9199900 77880", "daaeefdsf");
+        Assert.assertEquals("null",createUserTest.getPassword());
     }
 
 }
