@@ -1,6 +1,17 @@
 package com.lfp.javagenerics;
 
-public class JavaGenerics {
+public class JavaGenerics<E extends Comparable<E>> {
+    E x, y, z;
+
+    public JavaGenerics(E x, E y, E z) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+    }
+
+    public E calculateMaximum() {
+        return JavaGenerics.calculateMax(x, y, z);
+    }
 
     public static void main(String[] args) {
         Integer xInt = 70, yInt = 4, zInt = 9;
@@ -18,15 +29,18 @@ public class JavaGenerics {
         System.out.println("***The value of X : " + xString + " \n ***The Value of Y :" + yString + "\n ***The Value of Z :" + zString +
                 "\n *** The Maximum Value among x,y,z is : " + sMax);
         //Calculate using Generic Method
-        intMax = calculateMax(xInt,yInt,zInt);
+        intMax = calculateMax(xInt, yInt, zInt);
         System.out.println("***The value of X using Generic: " + xInt + " \n ***The Value of Y using Generic :" + yInt + "\n ***The Value of Z using Generic:" + zInt +
                 "\n *** The Maximum Value among x,y,z using Generic is : " + intMax);
-        fMax = calculateMax(xFloat,yFloat,zFloat);
+        fMax = calculateMax(xFloat, yFloat, zFloat);
         System.out.println("***The value of X using Generic: " + xFloat + " \n ***The Value of Y using Generic:" + yFloat + "\n ***The Value of Z using Generic:" + zFloat +
                 "\n *** The Maximum Value among x,y,z  using Generic is : " + fMax);
-        sMax = calculateMax(xString,yString,zString);
+        sMax = calculateMax(xString, yString, zString);
         System.out.println("***The value of X using Generic: " + xString + " \n ***The Value of Y using Generic:" + yString + "\n ***The Value of Z using Generic:" + zString +
                 "\n *** The Maximum Value among x,y,z  using Generic is : " + sMax);
+        new JavaGenerics<Integer>(xInt,yInt,zInt).calculateMaximum();
+        new JavaGenerics<Float>(xFloat,yFloat,zFloat).calculateMaximum();
+        new JavaGenerics<String>(xString,yString,zString).calculateMaximum();
 
 
     }
@@ -69,10 +83,15 @@ public class JavaGenerics {
     }
 
     //Create Generic Method to find maximum Value
-    public static <E extends Comparable<E>> E calculateMax(E x, E y,E z){
+    public static <E extends Comparable<E>> E calculateMax(E x, E y, E z) {
         E max = x;
-        if(y.compareTo(x) > 0) max = y;
-        if(z.compareTo(max) > 0) max =z;
+        if (y.compareTo(x) > 0) max = y;
+        if (z.compareTo(max) > 0) max = z;
+        printMaximumValue(x, y, z, max);
         return max;
+    }
+
+    public static <G> void printMaximumValue(G x, G y, G z, G max) {
+        System.out.printf("Maximum of %s,%s and %s is %s\n", x, y, z, max);
     }
 }

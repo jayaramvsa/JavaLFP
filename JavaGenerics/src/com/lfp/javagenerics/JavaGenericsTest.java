@@ -92,5 +92,4 @@ public class JavaGenericsTest {
         String sMax = JavaGenerics.calculateMax(xString,yString,zString);
         Assertions.assertEquals(xString,sMax);
     }
-
 }
