@@ -12,6 +12,11 @@ public class JavaGenerics {
         Float fMax = maximumFloat(xFloat, yFloat, zFloat);
         System.out.println("***The value of X : " + xFloat + " \n ***The Value of Y :" + yFloat + "\n ***The Value of Z :" + zFloat +
                 "\n *** The Maximum Value among x,y,z is : " + fMax);
+        //For String Exercise
+        String xString = "Apple", yString = "Mango", zString = "Grapes";
+        String sMax = maximumString(xString, yString, zString);
+        System.out.println("***The value of X : " + xString + " \n ***The Value of Y :" + yString + "\n ***The Value of Z :" + zString +
+                "\n *** The Maximum Value among x,y,z is : " + sMax);
     }
 
     /**
@@ -42,5 +47,12 @@ public class JavaGenerics {
         if (yFloat.compareTo(xFloat) > 0) maxFloat = yFloat; // If Y > X set Y as Maximum
         if (zFloat.compareTo(maxFloat) > 0) maxFloat = zFloat; // if Z > Maximum set Z as Maximum
         return maxFloat;
+    }
+
+    public static String maximumString(String xString, String yString, String zString) {
+        String maxString = xString;
+        if (yString.compareTo(xString) > 0) maxString = yString; // If Y > X set Y as Maximum
+        if (zString.compareTo(maxString) > 0) maxString = zString; // if Z > Maximum set Z as Maximum
+        return maxString;
     }
 }

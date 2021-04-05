@@ -49,4 +49,25 @@ public class JavaGenericsTest {
         Assertions.assertEquals(zFloat,fMax);
     }
 
+    @Test
+    public void validXMaxString(){
+        String xString = "Car",yString ="Bat",zString="Area";
+        String sMax = JavaGenerics.maximumString(xString,yString,zString);
+        Assertions.assertEquals(xString,sMax);
+    }
+
+    @Test
+    public void validYMaxString(){
+        String xString = "Bat",yString ="Car",zString="Area";
+        String sMax = JavaGenerics.maximumString(xString,yString,zString);
+        Assertions.assertEquals(yString,sMax);
+    }
+
+    @Test
+    public void validZMaxString(){
+        String xString = "Bat",yString ="Area",zString="Car";
+        String sMax = JavaGenerics.maximumString(xString,yString,zString);
+        Assertions.assertEquals(zString,sMax);
+    }
+
 }
