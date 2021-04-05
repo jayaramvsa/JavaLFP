@@ -17,6 +17,18 @@ public class JavaGenerics {
         String sMax = maximumString(xString, yString, zString);
         System.out.println("***The value of X : " + xString + " \n ***The Value of Y :" + yString + "\n ***The Value of Z :" + zString +
                 "\n *** The Maximum Value among x,y,z is : " + sMax);
+        //Calculate using Generic Method
+        intMax = calculateMax(xInt,yInt,zInt);
+        System.out.println("***The value of X using Generic: " + xInt + " \n ***The Value of Y using Generic :" + yInt + "\n ***The Value of Z using Generic:" + zInt +
+                "\n *** The Maximum Value among x,y,z using Generic is : " + intMax);
+        fMax = calculateMax(xFloat,yFloat,zFloat);
+        System.out.println("***The value of X using Generic: " + xFloat + " \n ***The Value of Y using Generic:" + yFloat + "\n ***The Value of Z using Generic:" + zFloat +
+                "\n *** The Maximum Value among x,y,z  using Generic is : " + fMax);
+        sMax = calculateMax(xString,yString,zString);
+        System.out.println("***The value of X using Generic: " + xString + " \n ***The Value of Y using Generic:" + yString + "\n ***The Value of Z using Generic:" + zString +
+                "\n *** The Maximum Value among x,y,z  using Generic is : " + sMax);
+
+
     }
 
     /**
@@ -54,5 +66,13 @@ public class JavaGenerics {
         if (yString.compareTo(xString) > 0) maxString = yString; // If Y > X set Y as Maximum
         if (zString.compareTo(maxString) > 0) maxString = zString; // if Z > Maximum set Z as Maximum
         return maxString;
+    }
+
+    //Create Generic Method to find maximum Value
+    public static <E extends Comparable<E>> E calculateMax(E x, E y,E z){
+        E max = x;
+        if(y.compareTo(x) > 0) max = y;
+        if(z.compareTo(max) > 0) max =z;
+        return max;
     }
 }

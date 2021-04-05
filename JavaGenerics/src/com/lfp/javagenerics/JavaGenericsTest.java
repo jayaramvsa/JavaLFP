@@ -49,6 +49,7 @@ public class JavaGenericsTest {
         Assertions.assertEquals(zFloat,fMax);
     }
 
+    //Test Case for String
     @Test
     public void validXMaxString(){
         String xString = "Car",yString ="Bat",zString="Area";
@@ -68,6 +69,28 @@ public class JavaGenericsTest {
         String xString = "Bat",yString ="Area",zString="Car";
         String sMax = JavaGenerics.maximumString(xString,yString,zString);
         Assertions.assertEquals(zString,sMax);
+    }
+
+    // Test Case for Generic , Integer, Float and String
+    @Test
+    public void validXMaxGen() {
+        Integer iX = 5,iY=2, iZ = 1;
+        Integer iMax = JavaGenerics.calculateMax(iX,iY,iZ);
+        Assertions.assertEquals(iX,iMax);
+    }
+
+    @Test
+    public void validXMaxFloatGen() {
+        Float xFloat = 11.3f, yFloat = 2.3f, zFloat = 9.5f;
+        Float fMax = JavaGenerics.calculateMax(xFloat,yFloat,zFloat);
+        Assertions.assertEquals(xFloat,fMax);
+    }
+
+    @Test
+    public void validXMaxStringGen(){
+        String xString = "Car",yString ="Bat",zString="Area";
+        String sMax = JavaGenerics.calculateMax(xString,yString,zString);
+        Assertions.assertEquals(xString,sMax);
     }
 
 }
