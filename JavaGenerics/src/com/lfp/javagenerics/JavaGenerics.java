@@ -46,7 +46,7 @@ public class JavaGenerics<E extends Comparable<E>> {
     }
 
     /**
-     * <p>Method for checking Maximum Integer in tradition way without generics</p>
+     * <p>Method for checking Maximum Integer in traditional way without generics</p>
      *
      * @param xInt
      * @param yInt
@@ -61,7 +61,7 @@ public class JavaGenerics<E extends Comparable<E>> {
     }
 
     /**
-     * <p>Method for checking Maximum Float in tradition way without generics</p>
+     * <p>Method for checking Maximum Float in traditional way without generics</p>
      *
      * @param xFloat
      * @param yFloat
@@ -75,6 +75,13 @@ public class JavaGenerics<E extends Comparable<E>> {
         return maxFloat;
     }
 
+    /**
+     * <p>Method for checking maximum String in traditional way without generics</p>
+     * @param xString
+     * @param yString
+     * @param zString
+     * @return
+     */
     public static String maximumString(String xString, String yString, String zString) {
         String maxString = xString;
         if (yString.compareTo(xString) > 0) maxString = yString; // If Y > X set Y as Maximum
@@ -82,6 +89,14 @@ public class JavaGenerics<E extends Comparable<E>> {
         return maxString;
     }
 
+    /**
+     * <p>Generic method to caluclate the maximum value</p>
+     * @param x
+     * @param y
+     * @param z
+     * @param <E>
+     * @return
+     */
     //Create Generic Method to find maximum Value
     public static <E extends Comparable<E>> E calculateMax(E x, E y, E z) {
         E max = x;
