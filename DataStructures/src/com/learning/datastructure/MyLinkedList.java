@@ -35,4 +35,14 @@ public class MyLinkedList {
         sMyNodes.append(currentNode.getKey());
         System.out.println(sMyNodes);
     }
+
+    public void addInReverse(InNode myNewNode) {
+        if(this.tail == null) this.tail = myNewNode;
+        if(this.head == null) this.head = myNewNode;
+        else {
+            InNode currentNode = this.head;
+            this.head = myNewNode;
+            this.head.setNext(currentNode);
+        }
+    }
 }

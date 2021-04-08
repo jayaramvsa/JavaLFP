@@ -1,6 +1,5 @@
 package com.learning.datastructure;
 
-import com.sun.xml.internal.ws.policy.AssertionSet;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -25,4 +24,21 @@ public class LinkedListTest {
 
     }
 
+    @Test
+    public void createLinkedListInReverse() {
+        MyNode<Integer> firstNode = new MyNode<>(76);
+        MyNode<Integer> secondNode = new MyNode<>(30);
+        MyNode<Integer> thirdNode = new MyNode<>(50);
+        MyLinkedList myLinkedList = new MyLinkedList();
+        myLinkedList.addInReverse(firstNode);
+        myLinkedList.printNode();
+        myLinkedList.addInReverse(secondNode);
+        myLinkedList.printNode();
+        myLinkedList.addInReverse(thirdNode);
+        myLinkedList.printNode();
+        boolean bResult = myLinkedList.head.equals(thirdNode) &&
+                myLinkedList.head.getNext().equals(secondNode) &&
+                myLinkedList.tail.equals(thirdNode);
+        Assertions.assertTrue(true);
+    }
 }
