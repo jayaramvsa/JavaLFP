@@ -3,6 +3,8 @@ package com.learning.datastructure;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.LinkedList;
+
 public class LinkedListTest {
 
     @Test
@@ -20,7 +22,7 @@ public class LinkedListTest {
         boolean bResult = myLinkedList.head.equals(firstNode) &&
                 myLinkedList.head.getNext().equals(secondNode) &&
                 myLinkedList.tail.equals(thirdNode);
-        Assertions.assertTrue(true);
+        Assertions.assertTrue(bResult);
 
     }
 
@@ -38,8 +40,8 @@ public class LinkedListTest {
         myLinkedList.printNode();
         boolean bResult = myLinkedList.head.equals(thirdNode) &&
                 myLinkedList.head.getNext().equals(secondNode) &&
-                myLinkedList.tail.equals(thirdNode);
-        Assertions.assertTrue(true);
+                myLinkedList.tail.equals(firstNode);
+        Assertions.assertTrue(bResult);
     }
 
     @Test
@@ -57,7 +59,7 @@ public class LinkedListTest {
         boolean bResult = myLinkedList.head.equals(firstNode) &&
                 myLinkedList.head.getNext().equals(secondNode) &&
                 myLinkedList.tail.equals(thirdNode);
-        Assertions.assertTrue(true);
+        Assertions.assertTrue(bResult);
     }
 
     @Test
@@ -75,7 +77,45 @@ public class LinkedListTest {
         boolean bResult = myLinkedList.head.equals(firstNode) &&
                 myLinkedList.head.getNext().equals(secondNode) &&
                 myLinkedList.tail.equals(thirdNode);
-        Assertions.assertTrue(true);
+        Assertions.assertTrue(bResult);
     }
 
+    @Test
+    public void toDeleteFirstHeadUsingPop(){
+        MyNode<Integer> firstNode = new MyNode<>(56);
+        MyNode<Integer> secondNode = new MyNode<>(30);
+        MyNode<Integer> thirdNode = new MyNode<>(76);
+        MyLinkedList myLinkedList = new MyLinkedList();
+        myLinkedList.add(firstNode);
+        myLinkedList.add(secondNode);
+        myLinkedList.add(thirdNode);
+        //Removing the Head using Pop
+        myLinkedList.printNode();
+        myLinkedList.pop();
+        myLinkedList.printNode();
+        boolean bResult = myLinkedList.head.equals(secondNode) &&
+                myLinkedList.tail.equals(thirdNode);
+        Assertions.assertTrue(bResult);
+    }
+
+    @Test
+    public void toDeleteTailHeadUsingPopLast(){
+        MyNode<Integer> firstNode = new MyNode<>(56);
+        MyNode<Integer> secondNode = new MyNode<>(30);
+        MyNode<Integer> thirdNode = new MyNode<>(76);
+        MyNode<Integer> fourthNode = new MyNode<>(99);
+        MyLinkedList myLinkedList = new MyLinkedList();
+        myLinkedList.add(firstNode);
+        myLinkedList.add(secondNode);
+        myLinkedList.add(thirdNode);
+        myLinkedList.add(fourthNode);
+        //Removing the Head using Pop
+        myLinkedList.printNode();
+        myLinkedList.popLast();
+        myLinkedList.printNode();
+        boolean bResult = myLinkedList.head.equals(firstNode) &&
+                myLinkedList.head.getNext().equals(secondNode) &&
+                myLinkedList.tail.equals(thirdNode);
+        Assertions.assertTrue(bResult);
+    }
 }
