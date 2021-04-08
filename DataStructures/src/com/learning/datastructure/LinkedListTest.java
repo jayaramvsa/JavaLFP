@@ -118,4 +118,20 @@ public class LinkedListTest {
                 myLinkedList.tail.equals(thirdNode);
         Assertions.assertTrue(bResult);
     }
+
+    @Test
+    public void toSearchNodeWithKey(){
+        MyNode<Integer> firstNode = new MyNode<>(56);
+        MyNode<Integer> secondNode = new MyNode<>(30);
+        MyNode<Integer> thirdNode = new MyNode<>(76);
+        MyLinkedList myLinkedList = new MyLinkedList();
+        myLinkedList.add(firstNode);
+        myLinkedList.add(secondNode);
+        myLinkedList.add(thirdNode);
+        //Removing the Head using Pop
+        boolean bResult = myLinkedList.searchByKey(30);
+        Assertions.assertTrue(bResult);
+        boolean bResultFalse = myLinkedList.searchByKey(100);
+        Assertions.assertFalse(bResultFalse);
+    }
 }
