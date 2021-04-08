@@ -36,6 +36,10 @@ public class MyLinkedList {
         System.out.println(sMyNodes);
     }
 
+    /**
+     * <p>Method for adding node in Reverse </p>
+     * @param myNewNode
+     */
     public void addInReverse(InNode myNewNode) {
         if(this.tail == null) this.tail = myNewNode;
         if(this.head == null) this.head = myNewNode;
@@ -44,5 +48,15 @@ public class MyLinkedList {
             this.head = myNewNode;
             this.head.setNext(currentNode);
         }
+    }
+
+    /**
+     * <p>Method for creating LinkedList suing Append Mode</p>
+     * @param myNewNode
+     */
+    public void append(InNode myNewNode) {
+        if(this.head == null) this.head = myNewNode;
+        if(this.tail != null) this.tail.setNext(myNewNode);
+        this.tail = myNewNode;
     }
 }
