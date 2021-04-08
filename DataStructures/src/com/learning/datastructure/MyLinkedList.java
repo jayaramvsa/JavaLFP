@@ -59,4 +59,14 @@ public class MyLinkedList {
         if(this.tail != null) this.tail.setNext(myNewNode);
         this.tail = myNewNode;
     }
+
+    public void insertAfter(InNode previousNode, InNode newNode){
+        if(previousNode == null){
+            System.err.println("** Previous node cannot be empty or null");
+            return ;
+        }
+        InNode currentNode = previousNode.getNext();
+        previousNode.setNext(newNode);
+        newNode.setNext(currentNode);
+    }
 }
