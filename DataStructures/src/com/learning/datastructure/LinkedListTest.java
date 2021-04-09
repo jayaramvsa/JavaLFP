@@ -156,7 +156,29 @@ public class LinkedListTest {
                 myLinkedList.head.getNext().getNext().equals(newNode) &&
                 myLinkedList.tail.equals(fourthNode);
         Assertions.assertTrue(bResult);
-        boolean bResultFalse = myLinkedList.searchByKey(100);
-        Assertions.assertFalse(bResultFalse);
+    }
+
+    @Test
+    public void toSearchAndDeleteWithKey() {
+        MyNode<Integer> firstNode = new MyNode<>(56);
+        MyNode<Integer> secondNode = new MyNode<>(30);
+        MyNode<Integer> thirdNode = new MyNode<>(40);
+        MyNode<Integer> fourthNode = new MyNode<>(76);
+        MyNode<Integer> fifthNode = new MyNode<>(99);
+        MyLinkedList myLinkedList = new MyLinkedList();
+        myLinkedList.add(firstNode);
+        myLinkedList.add(secondNode);
+        myLinkedList.add(thirdNode);
+        myLinkedList.add(fourthNode);
+        myLinkedList.add(fifthNode);
+        //Insert New Node after a Key
+        myLinkedList.printNode();
+        myLinkedList.findByKeyAndDelete(40);
+        myLinkedList.printNode();
+        Boolean bResult = myLinkedList.head.equals(firstNode) &&
+                myLinkedList.head.getNext().equals(secondNode) &&
+                myLinkedList.head.getNext().getNext().equals(fourthNode) &&
+                myLinkedList.tail.equals(fifthNode);
+        Assertions.assertTrue(bResult);
     }
 }

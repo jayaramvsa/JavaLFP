@@ -120,4 +120,16 @@ public class MyLinkedList<K> {
             currentNode = currentNode.getNext();
         }
     }
+
+    public void findByKeyAndDelete(K key) {
+        InNode currentNode = head;
+        while (currentNode != null && currentNode.getNext() != null) {
+            if(currentNode.getNext().getKey().equals(key)) {
+                InNode newNode = currentNode.getNext().getNext();
+                currentNode.setNext(newNode);
+                break;
+            }
+            currentNode = currentNode.getNext();
+        }
+    }
 }
