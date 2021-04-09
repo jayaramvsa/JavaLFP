@@ -2,7 +2,7 @@ package com.learning.datastructure;
 
 import java.util.LinkedList;
 
-public class MyLinkedList <K> {
+public class MyLinkedList<K> {
 
     public InNode head;
     public InNode tail;
@@ -93,18 +93,31 @@ public class MyLinkedList <K> {
             currentNode = currentNode.getNext();
         }
         this.tail = currentNode;
-        currentNode =  currentNode.getNext();
+        currentNode = currentNode.getNext();
         return currentNode;
     }
 
-    public boolean searchByKey(K key){
+    public boolean searchByKey(K key) {
         InNode currentNode = head;
-        while(currentNode !=null && currentNode !=null){
-            if(currentNode.getKey().equals(key)){
+        while (currentNode != null && currentNode.getNext() != null) {
+            if (currentNode.getKey().equals(key)) {
                 return true;
             }
             currentNode = currentNode.getNext();
         }
         return false;
+    }
+
+    public void findByKeyAndInsert(K key, InNode newNode) {
+        InNode currentNode = head;
+        while (currentNode != null && currentNode.getNext() != null) {
+            if(currentNode.getKey().equals(key)) {
+                InNode existingNode = currentNode.getNext();
+                currentNode.setNext(newNode);
+                newNode.setNext(existingNode);
+                break;
+            }
+            currentNode = currentNode.getNext();
+        }
     }
 }

@@ -45,7 +45,7 @@ public class LinkedListTest {
     }
 
     @Test
-    public void createLinkedListUsingAppend(){
+    public void createLinkedListUsingAppend() {
         MyNode<Integer> firstNode = new MyNode<>(56);
         MyNode<Integer> secondNode = new MyNode<>(30);
         MyNode<Integer> thirdNode = new MyNode<>(76);
@@ -63,7 +63,7 @@ public class LinkedListTest {
     }
 
     @Test
-    public void insertNodeBetweenTwoNode(){
+    public void insertNodeBetweenTwoNode() {
         MyNode<Integer> firstNode = new MyNode<>(56);
         MyNode<Integer> thirdNode = new MyNode<>(76);
         MyNode<Integer> secondNode = new MyNode<>(30);
@@ -72,7 +72,7 @@ public class LinkedListTest {
         myLinkedList.printNode();
         myLinkedList.append(thirdNode);
         myLinkedList.printNode();
-        myLinkedList.insertAfter(firstNode,secondNode);
+        myLinkedList.insertAfter(firstNode, secondNode);
         myLinkedList.printNode();
         boolean bResult = myLinkedList.head.equals(firstNode) &&
                 myLinkedList.head.getNext().equals(secondNode) &&
@@ -81,7 +81,7 @@ public class LinkedListTest {
     }
 
     @Test
-    public void toDeleteFirstHeadUsingPop(){
+    public void toDeleteFirstHeadUsingPop() {
         MyNode<Integer> firstNode = new MyNode<>(56);
         MyNode<Integer> secondNode = new MyNode<>(30);
         MyNode<Integer> thirdNode = new MyNode<>(76);
@@ -99,7 +99,7 @@ public class LinkedListTest {
     }
 
     @Test
-    public void toDeleteTailHeadUsingPopLast(){
+    public void toDeleteTailHeadUsingPopLast() {
         MyNode<Integer> firstNode = new MyNode<>(56);
         MyNode<Integer> secondNode = new MyNode<>(30);
         MyNode<Integer> thirdNode = new MyNode<>(76);
@@ -120,7 +120,7 @@ public class LinkedListTest {
     }
 
     @Test
-    public void toSearchNodeWithKey(){
+    public void toSearchNodeWithKey() {
         MyNode<Integer> firstNode = new MyNode<>(56);
         MyNode<Integer> secondNode = new MyNode<>(30);
         MyNode<Integer> thirdNode = new MyNode<>(76);
@@ -130,6 +130,31 @@ public class LinkedListTest {
         myLinkedList.add(thirdNode);
         //Removing the Head using Pop
         boolean bResult = myLinkedList.searchByKey(30);
+        Assertions.assertTrue(bResult);
+        boolean bResultFalse = myLinkedList.searchByKey(100);
+        Assertions.assertFalse(bResultFalse);
+    }
+
+    @Test
+    public void toSearchAndInsertWithKey() {
+        MyNode<Integer> firstNode = new MyNode<>(56);
+        MyNode<Integer> secondNode = new MyNode<>(30);
+        MyNode<Integer> thirdNode = new MyNode<>(76);
+        MyNode<Integer> fourthNode = new MyNode<>(99);
+        MyLinkedList myLinkedList = new MyLinkedList();
+        myLinkedList.add(firstNode);
+        myLinkedList.add(secondNode);
+        myLinkedList.add(thirdNode);
+        myLinkedList.add(fourthNode);
+        MyNode<Integer> newNode = new MyNode<>(40);
+        //Insert New Node after a Key
+        myLinkedList.printNode();
+        myLinkedList.findByKeyAndInsert(30, newNode);
+        myLinkedList.printNode();
+        Boolean bResult = myLinkedList.head.equals(firstNode) &&
+                myLinkedList.head.getNext().equals(secondNode) &&
+                myLinkedList.head.getNext().getNext().equals(newNode) &&
+                myLinkedList.tail.equals(fourthNode);
         Assertions.assertTrue(bResult);
         boolean bResultFalse = myLinkedList.searchByKey(100);
         Assertions.assertFalse(bResultFalse);
