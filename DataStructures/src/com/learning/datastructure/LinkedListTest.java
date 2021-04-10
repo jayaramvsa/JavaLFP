@@ -3,8 +3,6 @@ package com.learning.datastructure;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.LinkedList;
-
 public class LinkedListTest {
 
     @Test
@@ -180,5 +178,19 @@ public class LinkedListTest {
                 myLinkedList.head.getNext().getNext().equals(fourthNode) &&
                 myLinkedList.tail.equals(fifthNode);
         Assertions.assertTrue(bResult);
+    }
+
+    @Test
+    public void toCreateStackToAddFromTop(){
+        MyStack myStack = new MyStack();
+        MyNode<Integer> firstNode = new MyNode<>(76);
+        MyNode<Integer> secondNode = new MyNode<>(30);
+        MyNode<Integer> thirdNode = new MyNode<>(50);
+        myStack.push(firstNode);
+        myStack.push(secondNode);
+        myStack.push(thirdNode);
+        InNode inNode = myStack.peak();
+        myStack.printStack();
+        Assertions.assertEquals(thirdNode,inNode);
     }
 }
