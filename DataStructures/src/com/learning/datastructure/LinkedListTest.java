@@ -208,4 +208,32 @@ public class LinkedListTest {
         Assertions.assertEquals(thirdNode,inPop);
 
     }
+
+    @Test
+    public void toCreateQueueAndAppend(){
+        MyStack myStack = new MyStack();
+        MyNode<Integer> firstNode = new MyNode<>(50);
+        MyNode<Integer> secondNode = new MyNode<>(30);
+        MyNode<Integer> thirdNode = new MyNode<>(76);
+        myStack.queue(firstNode);
+        myStack.queue(secondNode);
+        myStack.queue(thirdNode);
+        InNode inQueue = myStack.peak();
+        myStack.printStack();
+        Assertions.assertEquals(firstNode,inQueue);
+    }
+
+    @Test
+    public void toDequeue(){
+        MyStack myStack = new MyStack();
+        MyNode<Integer> firstNode = new MyNode<>(50);
+        MyNode<Integer> secondNode = new MyNode<>(30);
+        MyNode<Integer> thirdNode = new MyNode<>(76);
+        myStack.queue(firstNode);
+        myStack.queue(secondNode);
+        myStack.queue(thirdNode);
+        InNode inPop = myStack.pop();
+        myStack.printStack();
+        Assertions.assertEquals(firstNode,inPop);
+    }
 }

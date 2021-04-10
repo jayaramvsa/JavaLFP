@@ -22,4 +22,8 @@ public class MyStack {
     public InNode pop() {
         return myLinkedList.pop();
     }
+
+    public void queue(InNode myNewNode) {
+        myLinkedList.append(myNewNode);
+    }
 }
