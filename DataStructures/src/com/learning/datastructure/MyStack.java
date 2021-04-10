@@ -18,4 +18,8 @@ public class MyStack {
     public InNode peak() {
         return myLinkedList.head;
     }
+
+    public InNode pop() {
+        return myLinkedList.pop();
+    }
 }

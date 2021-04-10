@@ -193,4 +193,19 @@ public class LinkedListTest {
         myStack.printStack();
         Assertions.assertEquals(thirdNode,inNode);
     }
+
+    @Test
+    public void toCreatePopAndPeek(){
+        MyStack myStack = new MyStack();
+        MyNode<Integer> firstNode = new MyNode<>(76);
+        MyNode<Integer> secondNode = new MyNode<>(30);
+        MyNode<Integer> thirdNode = new MyNode<>(50);
+        myStack.push(firstNode);
+        myStack.push(secondNode);
+        myStack.push(thirdNode);
+        InNode inPop = myStack.pop();
+        myStack.printStack();
+        Assertions.assertEquals(thirdNode,inPop);
+
+    }
 }
